@@ -156,47 +156,55 @@ export default function ReportsPage() {
 
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <ChartCard title="Applications by Course">
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={byCourse.length ? byCourse : CHART_DATA.byCourse} layout="vertical" margin={{ left: 24 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis type="category" dataKey="name" width={120} tick={{ fontSize: 11 }} />
-              <Tooltip />
-              <Bar dataKey="value" fill="hsl(199, 89%, 48%)" radius={[0, 4, 4, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="h-[260px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={byCourse.length ? byCourse : CHART_DATA.byCourse} layout="vertical" margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis type="number" />
+                <YAxis type="category" dataKey="name" width={140} tick={{ fontSize: 11 }} interval={0} />
+                <Tooltip />
+                <Bar dataKey="value" fill="hsl(199, 89%, 48%)" radius={[0, 4, 4, 0]} barSize={18} minPointSize={0} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </ChartCard>
         <ChartCard title="Applications by City">
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={byCity.length ? byCity : CHART_DATA.byCity}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="hsl(142, 71%, 45%)" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="h-[260px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={byCity.length ? byCity : CHART_DATA.byCity} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="value" fill="hsl(142, 71%, 45%)" radius={[4, 4, 0, 0]} minPointSize={0} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </ChartCard>
         <ChartCard title="Applications by Campus">
-          <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={byCampus}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="hsl(280, 65%, 60%)" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="h-[260px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={byCampus} margin={{ top: 8, right: 8, left: 0, bottom: 8 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="value" fill="hsl(280, 65%, 60%)" radius={[4, 4, 0, 0]} minPointSize={0} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </ChartCard>
         <ChartCard title="Applications by Status">
-          <ResponsiveContainer width="100%" height={260}>
-            <PieChart>
-              <Pie data={byStatus} dataKey="value" nameKey="name" innerRadius={60} outerRadius={90}>
-                {byStatus.map((s) => <Cell key={s.name} fill={s.color} />)}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="h-[260px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie data={byStatus} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={90}>
+                  {byStatus.map((s) => <Cell key={s.name} fill={s.color} />)}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </ChartCard>
       </div>
 

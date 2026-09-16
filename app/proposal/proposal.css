@@ -1,0 +1,100 @@
+.proposal-root {
+  --ink: #0b1628;
+  --navy: #12243a;
+  --primary: #1a7a9c;
+  --primary-2: #2489ad;
+  --primary-soft: #e7f4f8;
+  --accent: #c4964a;
+  --accent-soft: #f6ecd8;
+  --paper: #f4f6f9;
+  --card: #ffffff;
+  --muted: #5c6b7c;
+  --line: #e3e9ef;
+  --shadow: 0 22px 50px -28px rgba(11, 22, 40, 0.42);
+  --shadow-lg: 0 28px 64px -24px rgba(11, 22, 40, 0.38);
+  font-feature-settings: 'ss01' 1, 'cv11' 1;
+}
+
+@keyframes deckFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes deckFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes deckSlideIn {
+  from { opacity: 0; transform: translateX(-22px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes deckSlideRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes deckScaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes deckBar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes deckWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes deckDraw {
+  from { stroke-dashoffset: 420; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes deckDonut {
+  from { stroke-dashoffset: 260; }
+}
+
+.d-up { animation: deckFadeUp 0.72s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-in { animation: deckFadeIn 0.65s ease both; }
+.d-left { animation: deckSlideIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-right { animation: deckSlideRight 0.72s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-scale { animation: deckScaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-bar { transform-origin: bottom; animation: deckBar 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-width { transform-origin: left; animation: deckWidth 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.d-draw { stroke-dasharray: 420; animation: deckDraw 1.1s ease both; }
+
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.12s; }
+.d3 { animation-delay: 0.19s; }
+.d4 { animation-delay: 0.26s; }
+.d5 { animation-delay: 0.33s; }
+.d6 { animation-delay: 0.4s; }
+.d7 { animation-delay: 0.47s; }
+.d8 { animation-delay: 0.54s; }
+.d9 { animation-delay: 0.61s; }
+.d10 { animation-delay: 0.68s; }
+
+.proposal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.proposal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.proposal-grid {
+  background-image:
+    linear-gradient(rgba(18, 36, 58, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 36, 58, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.proposal-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--primary);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}

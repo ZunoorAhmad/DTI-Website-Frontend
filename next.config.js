@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  swcMinify: false,
   images: { unoptimized: true },
+  turbopack: {
+    root: __dirname,
+  },
 };
 
 module.exports = nextConfig;

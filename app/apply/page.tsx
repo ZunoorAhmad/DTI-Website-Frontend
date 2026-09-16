@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   ArrowLeft,
@@ -87,7 +87,7 @@ interface FormData {
   courseSpecific: Record<string, string>;
 }
 
-export default function ApplyPage() {
+function ApplyForm() {
   const searchParams = useSearchParams();
   const preselectedCourse = searchParams.get('course');
 
@@ -770,5 +770,13 @@ export default function ApplyPage() {
         </div>
       </section>
     </PublicLayout>
+  );
+}
+
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={null}>
+      <ApplyForm />
+    </Suspense>
   );
 }
